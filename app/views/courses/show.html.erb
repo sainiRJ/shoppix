@@ -1,0 +1,8 @@
+<h1>Video Details</h1>
+<% content_urls = @course.course_contents.pluck(:content_url) %>
+<% content_urls.each do |content_url| %>
+<video width="640" height="360" controls>
+  <source src="<%= content_url %>" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<% end %>

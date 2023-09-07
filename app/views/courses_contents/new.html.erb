@@ -1,0 +1,15 @@
+<%= form_for [@course, @course_content], url: content_create_path, method: :post do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <%= f.label :file %>
+  <%= f.file_field :file %>
+
+  <%= f.label :video_file %>
+  <%= f.file_field :video_file %>
+
+
+  <%= f.submit 'Create Course Content' %>
+<% end %>

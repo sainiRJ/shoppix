@@ -1,0 +1,36 @@
+<%=render 'shared/navbar' %>
+<h1>Uploaded Videos</h1>
+<ul>
+  <% @course.each do |course| %>
+  <% content_urls = course.course_contents.pluck(:content_url) %>
+  <% content_types = course.course_contents.pluck(:content_type) %>
+  <% content_urls.each do |content_url| %>
+  <% content_types.each do |content_type| %>
+    <li>
+      <h2><%= course.name %> </h2>
+      <p><%= course.description %></p>
+      <h3><%= course.price %></h3>
+      <p>
+        <%= link_to 'Download Document', content_type %>
+      </p>
+     <a href="http://localhost:3000/course/show/<%= course.id %>">watch Video</a>
+     <%= link_to "download Video", content_url %>
+     <%= form_tag course_payment_path, method: 'post' do %>
+     <script
+       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+       data-description="<%= course.name %>"
+       data-amount="<%= course.price * 100 %>"
+       data-locale="auto"
+       data-currency="inr">
+     </script>
+   <% end %>
+   
+   <%= link_to 'Back to Courses', courses_path %>
+</li>
+<% end %>
+<% end %>
+<% end %>
+</ul>
+
+

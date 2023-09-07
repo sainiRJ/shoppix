@@ -1,0 +1,35 @@
+<div class="col-lg-12">
+    <div class="card mt-5 mb-5">
+      <div class="card-body">
+        <h2 class="text-center">Register New instructor</h2>
+      </div>
+    </div>
+  </div>
+    <%= form_for @instructor, url: instructor_register_path, method: :post do |f| %>
+    <%= content_tag :div, class: 'my-div', style: 'border: solid black 2px;width:50%;height:300px;margin-left: 25%;background-color:#d0caed  ' do %>
+    <div class="form-row">
+            <%= f.label :full_name,  style:'margin-left: 23%; margin-top:2%' %>
+              <%= f.text_field :full_name,  style:'margin-left: 14%'  %>
+            </div>
+            <div class="form-row">
+                <%= f.label :mobile_number,  style:'margin-left: 23%; margin-top:2%'  %>
+                <%= f.text_field :mobile_number ,  style:'margin-left: 14%' %>
+            </div>
+            <div class="form-row">
+            <%= f.label :email,  style:'margin-left: 23%; margin-top:2%'  %>
+              <%= f.email_field :email,  style:'margin-left: 19%'  %>
+            </div>
+            <div class="form-row">
+            <%= f.label :password,  style:'margin-left: 23%; margin-top:2%'  %>
+              <%= f.password_field :password,  style:'margin-left: 15%'  %>
+            </div>
+            <div class="form-row">
+            <%= f.label :password_confirmation,  style:'margin-left: 23%; margin-top:2%'  %>
+              <%= f.password_field :password_confirmation,  style:'margin-left: 0.5%'  %>
+            </div>
+            <div class="form-row">
+            <%= f.submit "Register",  style:'margin-left: 23%; margin-top:3%; background-color:black; color:white'  %>
+          </div>
+      <% end %>
+      <% end %>
+  
